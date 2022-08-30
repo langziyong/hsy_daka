@@ -1,9 +1,10 @@
+# 用户控制类
 import json
-
 import Main
 
 
-class User:
+class User:  # 用户控制类
+
     def __init__(self):
         self.dataBase = Main.Database()
 
@@ -90,4 +91,3 @@ if __name__ == '__main__':
     # print(d)
     print(x.getUser(""))
     print(x.login("", ""))
-

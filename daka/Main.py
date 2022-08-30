@@ -1,3 +1,4 @@
+# 一个数据库管理类以及若干工具函数
 import os
 import re
 import pymysql
