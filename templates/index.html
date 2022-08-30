@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="root">
+    <div class="content">
+        <div class="move" style="left: 50%">
+            <h2>自动化打卡工具</h2>
+            <a href="#" id="move_btn">已经注册了？点此处登录</a>
+        </div>
+        <div class="register_box">
+            <h2>注册</h2>
+            <form action="/register/verify" method="post">
+                <p>在下方输入框输入企业微信打卡页面的链接。</p>
+                <label for="workwx_url"></label><input type="text" id="workwx_url" placeholder="企业微信上表单地址..." name="workwx_url" >
+                <p style="text-align: right"><input type="submit" value="提交" id="register_submit_btn"></p>
+            </form>
+        </div>
+        <div class="login_box" style="opacity: 0;">
+            <h2>登录</h2>
+            <form action="/login" method="post">
+                <p>为了隐私安全, 请阁下输入手机号验证（与表单上手机号一致）。</p>
+                <label for="gh"></label><input type="text" id="gh" name="gh" placeholder="学号">
+                <label for="sj"></label><input type="password" id="sj" name="sj" placeholder="表单上的手机号">
+                <p style="text-align: right"><a href="#" id="phpsessid_login" style="margin-right: 16px">PHPSESSID入口</a><input type="submit" value="登录" id="login_submit_btn"></p>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    let move_btn = document.querySelector("#move_btn")
+    let move_banner = document.querySelector("div.move")
+    let register_box = document.querySelector("div.register_box")
+    let login_box = document.querySelector("div.login_box")
+
+
+    move_btn.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (move_banner.style.left === "50%"){
+            move_banner.style.left = "0"
+            move_btn.innerHTML = "还没有注册？点击注册"
+            register_box.style.opacity = "0"
+            login_box.style.opacity = "1"
+
+        } else {
+            move_banner.style.left = "50%"
+            move_btn.innerHTML = "已经注册了？点此处登录"
+            register_box.style.opacity = "1"
+            login_box.style.opacity = "0"
+        }
+
+    })
+
+    document.getElementById("register_submit_btn").addEventListener("click", (e) => {
+        if (document.getElementById("workwx_url").value === ""){
+            e.preventDefault()
+            alert("不允许提交空值")
+        }
+    })
+</script>
+{% endblock %}

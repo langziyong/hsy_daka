@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="root">
+    <div class="content">
+        <div class="user_page">
+            <h2>用户信息</h2>
+            <p><span>PHPSESSID: {{ user["phpsessid"] | default(none) }}</span></p>
+            <div class="user_form">
+                <p class="unit">
+                    <label for="tbrq">填报日期(tbrq)<span style="color: darkblue">[随时间自动更新]</span></label>
+                    <input type="text" name="tbrq" id="tbrq" value="{{ user["data"]["tbrq"] }}"></p>
+                <p class="unit">
+                    <label for="txr">填写人(txr)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="txr" id="txr" value="{{ user["data"]["txr"] }}"></p>
+                <p class="unit">
+                    <label for="lx">类型(lx)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="lx" id="lx" value="{{ user["data"]["lx"] }}"></p>
+                <p class="unit">
+                    <label for="gh">学工号(gh)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="gh" id="gh" value="{{ user["data"]["gh"] }}"></p>
+                <p class="unit">
+                    <label for="bm">部门(bm)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="bm" id="bm" value="{{ user["data"]["bm"] }}"></p>
+                <p class="unit">
+                    <label for="bj">班级(bj)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="bj" id="bj" value="{{ user["data"]["bj"] }}"></p>
+                <p class="unit">
+                    <label for="sj">手机(sj)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" name="sj" id="sj" value="{{ user["data"]["sj"] }}"></p>
+                <p class="unit">
+                    <label for="jtzz">居住地(jtzz)<span style="color: red">[关键选项]</span></label>
+                    <input type="text" id="jtzz" name="jtzz" value="{{ user["data"]["jtzz"] }}"></p>
+                <p class="unit">
+                    <label for="jtdz">中高风险详细地址(jtdz)<span style="color: red">[关键选项]</span></label>
+                    <input type="text" id="jtdz" name="jtdz" value="{{ user["data"]["jtdz"] }}" placeholder="如果你不在中高风险地区, 此项为空"></p>
+                <p class="unit">
+                    <label for="addr">地址(addr)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" id="addr" name="addr" value="{{ user["data"]["addr"] }}"></p>
+                <p class="unit">
+                    <label for="ip">其他项(ip)<span style="color:orange">[由IP查询得到经纬度]</span></label>
+                    <input type="text" id="ip" name="ip" value="{{ user["data"]["ip"] }}"></p>
+                <p class="unit">
+                    <label for="area">区县(area)<span style="color: darkblue">[固定值]</span></label>
+                    <input type="text" id="area" name="area" value="{{ user["data"]["area"] }}"></p>
+                <p class="unit">
+                    <label for="dkjtdz">打卡时所在地址(dkjtdz)<span style="color: red">[关键选项]</span></label>
+                    <input type="text" id="dkjtdz" name="dkjtdz" value="{{ user["data"]["dkjtdz"] }}"></p>
+                <p class="unit">
+                    <label for="yqfk">健康状态(yqfk)<span style="color: red">[重要选项]</span></label>
+                    <input type="text" id="yqfk" name="yqfk" value="{{ user["data"]["yqfk"] }}"></p>
+                <p class="unit">
+                    <label for="xmfl">是否接触疑似确诊病例(xmfl)<span style="color: red">[重要选项]</span></label>
+                    <input type="text" id="xmfl" name="xmfl" value="{{ user["data"]["xmfl"] }}"></p>
+                <p class="unit">
+                    <label for="jkm">健康码情况(jkm)<span style="color: red">[重要选项]</span></label>
+                    <input type="text" id="jkm" name="jkm" value="{{ user["data"]["jkm"] }}"></p>
+                <p class="unit">
+                    <label for="hxrq">备注(hxrq)<span style="color: darkblue">[一般选项]</span></label>
+                    <input type="text" id="hxrq" name="hxrq" value="{{ user["data"]["hxrq"] }}" placeholder="如果你没有填写备注, 此项为空"></p>
+                <p class="unit">
+                    <label for="status_message">表单状态</label>
+                    {% if user["status"] == 0 %}
+                        <input type="text" id="status_message"  value="{{ user["status_message"] }}" style="color: green">
+                    {% else %}
+                        <input type="text" id="status_message"  value="{{ user["status_message"] }}" style="color: red">
+                    {% endif %}
+                </p>
+                <p class="unit" style="width: 100%">
+{#                    <a href="/user/repull"><input type="submit" value="重新拉取数据"></a>#}
+                    <a href="/loginout"><input type="submit" value="退出登录"></a>
+                    <a href="/user/daka"><input type="submit" value="测试打卡"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="root">
+    <div class="content">
+        <div class="register">
+            <h2>确认信息</h2>
+            <p><span>PHPSESSID: {{ user["phpsessid"] | default(none) }}</span></p>
+            <form action="/register/submit" class="register_form" method="post">
+                <p class="unit"><label for="tbrq">填报日期(tbrq)</label><input type="text" name="tbrq" id="tbrq" value="{{ user["data"]["tbrq"] }}"></p>
+                <p class="unit"><label for="txr">填写人(txr)</label><input type="text" name="txr" id="txr" value="{{ user["data"]["txr"] }}"></p>
+                <p class="unit"><label for="lx">类型(lx)</label><input type="text" name="lx" id="lx" value="{{ user["data"]["lx"] }}"></p>
+                <p class="unit"><label for="gh">学工号(gh)</label><input type="text" name="gh" id="gh" value="{{ user["data"]["gh"] }}"></p>
+                <p class="unit"><label for="bm">部门(bm)</label><input type="text" name="bm" id="bm" value="{{ user["data"]["bm"] }}"></p>
+                <p class="unit"><label for="bj">班级(bj)</label><input type="text" name="bj" id="bj" value="{{ user["data"]["bj"] }}"></p>
+                <p class="unit"><label for="sj">手机(sj)</label><input type="text" name="sj" id="sj" value="{{ user["data"]["sj"] }}"></p>
+                <p class="unit"><label for="jtzz">居住地(jtzz)</label><input type="text" id="jtzz" name="jtzz" value="{{ user["data"]["jtzz"] }}"></p>
+                <p class="unit"><label for="jtdz">中高风险详细地址(jtdz)</label><input type="text" id="jtdz" name="jtdz" value="{{ user["data"]["jtdz"] }}"></p>
+                <p class="unit"><label for="addr">地址(addr)</label><input type="text" id="addr" name="addr" value="{{ user["data"]["addr"] }}"></p>
+                <p class="unit"><label for="ip">其他项(ip)</label><input type="text" id="ip" name="ip" value="{{ user["data"]["ip"] }}"></p>
+                <p class="unit"><label for="area">区县(area)</label><input type="text" id="area" name="area" value="{{ user["data"]["area"] }}"></p>
+                <p class="unit"><label for="dkjtdz">打卡家庭地址(dkjtdz)</label><input type="text" id="dkjtdz" name="dkjtdz" value="{{ user["data"]["dkjtdz"] }}"></p>
+                <p class="unit"><label for="yqfk">健康状态(yqfk)</label><input type="text" id="yqfk" name="yqfk" value="{{ user["data"]["yqfk"] }}"></p>
+                <p class="unit"><label for="xmfl">是否接触疑似确诊病例(xmfl)</label><input type="text" id="xmfl" name="xmfl" value="{{ user["data"]["xmfl"] }}"></p>
+                <p class="unit"><label for="jkm">健康码情况(jkm)</label><input type="text" id="jkm" name="jkm" value="{{ user["data"]["jkm"] }}"></p>
+                <p class="unit"><label for="hxrq">备注(hxrq)</label><input type="text" id="hxrq" name="hxrq" value="{{ user["data"]["hxrq"] }}"></p>
+                <p class="unit">
+                    <label for="status_message">表单状态</label>
+                    {% if user["status"] == 0 %}
+                        <input type="text" id="status_message"  value="{{ user["status_message"] }}" style="color: green">
+                    {% else %}
+                        <input type="text" id="status_message"  value="{{ user["status_message"] }}" style="color: red">
+                    {% endif %}
+                </p>
+                <p class="unit" style="width: 100%"><input type="submit" value="我已确认"></p>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

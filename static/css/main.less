@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei UI" ,sans-serif;
+  color: #252525;
+}
+.root{
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  background-color: rgba(169, 169, 169, 0.5);
+  //width: 80%;
+  margin: auto;
+  min-height: 70%;
+  position: relative;
+
+  h2{
+    margin-bottom: 16px;
+  }
+
+  p{
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .move{
+    position: absolute;
+    width: 50%;
+    background-color: #b0b0b0;
+    height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    left: 50%;
+    transition: all .5s;
+    z-index: 2;
+  }
+  .middle{
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+
+    display: flex;
+
+    .text{
+      margin: auto;
+    }
+  }
+  .register_box{
+    flex: 1;
+    padding: 32px;
+    transition: all .5s;
+
+  }
+  .login_box{
+    flex: 1;
+    padding: 32px;
+    transition: all .5s;
+  }
+
+  input[type='text'], input[type='password']{
+    width: 100%;
+    height: 24px;
+    outline: 0;
+    border: 0;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+
+  input[type='submit']{
+    border: 1px solid black;
+    min-width: 64px;
+    height: 32px;
+    cursor: pointer;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    padding: 8px;
+  }
+
+}
+
+.register{
+  padding: 32px;
+  width: 100%;
+
+  .register_form{
+    display: flex;
+    flex-wrap: wrap;
+
+
+    .unit{
+      width: 250px;
+      margin-bottom: 8px;
+      margin-right: 16px;
+      line-height: 24px;
+    }
+  }
+
+}
+
+.user_page{
+  padding: 32px;
+  width: 100%;
+
+  .user_form{
+    display: flex;
+    flex-wrap: wrap;
+
+
+    .unit{
+      width: 250px;
+      margin-bottom: 8px;
+      margin-right: 16px;
+      line-height: 24px;
+    }
+  }
+
+}
