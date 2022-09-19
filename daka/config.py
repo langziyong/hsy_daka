@@ -19,9 +19,9 @@ DAKA_HEADERS = {
 
 # DATABASE
 DATABASE_CONFIG = {
-    "HOST": "124.221.102.241",
-    "USER": "root",
-    "PASSWORD": "lzy0812..",
+    "HOST": "",
+    "USER": "",
+    "PASSWORD": "",
     "DATABASE": "hangshangyuan",
     "PORT": 3306
 }

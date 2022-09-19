@@ -1,5 +1,7 @@
 # 用户控制类
 import json
+from typing import Optional
+
 import Main
 
 
@@ -9,10 +11,10 @@ class User:  # 用户控制类
         self.dataBase = Main.Database()
 
     def pullAllUser(self):
-        with self.dataBase.getCursor() as scursor:
+        with self.dataBase.getCursor() as cursor:
             sql = "select gh, phpsessid, data, status from Daka_User"
-            scursor.execute(sql)
-            data = scursor.fetchall()
+            cursor.execute(sql)
+            data = cursor.fetchall()
         return [{
             "gh": u[0],
             "phpsessid": u[1],
@@ -35,7 +37,7 @@ class User:  # 用户控制类
             else:
                 return False, "数据库错误"
 
-    def getUser(self, gh: str) -> dict | None:
+    def getUser(self, gh: str) -> Optional[dict]:
         with self.dataBase.getCursor() as cursor:
             sql = "select gh, phpsessid, data, status from Daka_User where gh = %s"
             cursor.execute(sql, gh)
